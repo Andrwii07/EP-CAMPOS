@@ -1,0 +1,62 @@
+@model EP_CAMPOS.ViewModels.RemesaViewModels
+
+@{
+    ViewData["Title"] = "Formulario de Remesa";
+}
+
+<div class="container">
+    <h1 class="text-center mb-4">Formulario de Remesa</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form asp-controller="Remesa" asp-action="Crear" method="post">
+                <div class="form-group">
+                    <label asp-for="FormRemesa.NombreR" class="control-label">Nombre del Remitente</label>
+                    <input asp-for="FormRemesa.NombreR" class="form-control" />
+                </div><br>
+                <div class="form-group">
+                    <label asp-for="FormRemesa.NombreD" class="control-label">Nombre del Destinatario</label>
+                    <input asp-for="FormRemesa.NombreD" class="form-control" />
+                </div><br>
+                <div class="form-group">
+                    <label asp-for="FormRemesa.Origen" class="control-label">País de Origen</label>
+                    <input asp-for="FormRemesa.Origen" class="form-control" />
+                </div><br>
+                <div class="form-group">
+                    <label asp-for="FormRemesa.Destino" class="control-label">País de Destino</label>
+                    <input asp-for="FormRemesa.Destino" class="form-control" />
+                </div><br>
+                <div class="form-group">
+                    <label asp-for="FormRemesa.Monto" class="control-label">Monto Enviado</label>
+                    <input asp-for="FormRemesa.Monto" class="form-control" type="number" step="0.01" />
+                </div><br>
+                <div class="form-group">
+                    <label asp-for="FormRemesa.TipoM" class="control-label">Tipo de Moneda</label>
+                    <select asp-for="FormRemesa.TipoM" class="form-control">
+                        <option value="USD">USD</option>
+                        <option value="BTC">BTC</option>
+                    </select>
+                </div><br>
+                <div class="form-group">
+                    <label asp-for="FormRemesa.Tasa" class="control-label">Tasa de Cambio</label>
+                    <input asp-for="FormRemesa.Tasa" class="form-control" type="number" step="0.0001" />
+                </div><br>
+                <div class="form-group">
+                    <label asp-for="FormRemesa.MontoF" class="control-label">Monto Final</label>
+                    <input asp-for="FormRemesa.MontoF" class="form-control" type="number" step="0.01" />
+                </div><br>
+                <div class="form-group">
+                    <label asp-for="FormRemesa.EstadoT" class="control-label">Estado de la Transacción</label>
+                    <select asp-for="FormRemesa.EstadoT" class="form-control">
+                        <option value="Pendiente">Pendiente</option>
+                        <option value="Completada">Completada</option>
+                        <option value="Cancelada">Cancelada</option>
+                    </select>
+                </div><br>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary">Crear Remesa</button>
+                </div>
+            </form>
+            <h1>@ViewData["Message"]</h1>
+        </div>
+    </div>
+</div>
