@@ -58,5 +58,47 @@
             </form>
             <h1>@ViewData["Message"]</h1>
         </div>
+    <br>
+
+        <div>
+            <h1 class="text-center mb-4">Formulario de Remesa</h1>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre del Remitente</th>
+                            <th>Nombre del Destinatario</th>
+                            <th>País de Origen</th>
+                            <th>País de Destino</th>
+                            <th>Monto Enviado</th>
+                            <th>Moneda</th>
+                            <th>Tasa de Cambio</th>
+                            <th>Monto Final</th>
+                            <th>Estado de Transacción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.ListRemesa != null)
+                        {
+                            @foreach (var item in Model.ListRemesa)
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => item.NombreR)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.NombreD)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Origen)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Destino)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Monto)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.TipoM)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Tasa)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.MontoF)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.EstadoT)</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
